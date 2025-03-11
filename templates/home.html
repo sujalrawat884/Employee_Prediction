@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Employee Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Employee Performance Prediction</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('predict') }}">Predict</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to the Employee Performance Prediction System</h2>
+        <p>This system predicts employee performance based on multiple factors using Machine Learning.</p>
+        <a href="{{ url_for('predict') }}"><button>Predict Now</button></a>
+    </main>
+</body>
+</html>

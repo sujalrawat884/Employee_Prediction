@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Employee Productivity</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Productivity Prediction</h1>
+
+        <form action="/predict" method="post" class="form-box">
+            <label for="team">Team:</label>
+            <input type="number" id="team" name="team" required><br>
+
+            <label for="month">Month (1-12):</label>
+            <input type="number" id="month" name="month" min="1" max="12" required><br>
+
+            <label for="quarter">Quarter:</label>
+            <select id="quarter" name="quarter" required>
+                <option value="0">Quarter1</option>
+                <option value="1">Quarter2</option>
+                <option value="2">Quarter3</option>
+                <option value="3">Quarter4</option>
+                <option value="4">Quarter5</option>
+            </select><br>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="0">Finishing</option>
+                <option value="1">Sewing</option>
+            </select><br>
+
+            <label for="day">Day:</label>
+            <select id="day" name="day" required>
+                <option value="0">Monday</option>
+                <option value="1">Saturday</option>
+                <option value="2">Sunday</option>
+                <option value="3">Thursday</option>
+                <option value="4">Tuesday</option>
+                <option value="5">Wednesday</option>
+            </select><br>
+
+            <label for="targeted_productivity">Targeted Productivity:</label>
+            <input type="number" id="targeted_productivity" name="targeted_productivity" step="0.01" required><br>
+
+            <label for="smv">SMV (Standard Minute Value):</label>
+            <input type="number" id="smv" name="smv" step="0.01" required><br>
+
+            <label for="wip">Work In Progress (WIP):</label>
+            <input type="number" id="wip" name="wip" step="0.01"><br>
+
+            <label for="over_time">Overtime (Minutes):</label>
+            <input type="number" id="over_time" name="over_time" required><br>
+
+            <label for="incentive">Incentive (Rs.):</label>
+            <input type="number" id="incentive" name="incentive" required><br>
+
+            <label for="idle_time">Idle Time (Minutes):</label>
+            <input type="number" id="idle_time" name="idle_time" step="0.01"><br>
+
+            <label for="idle_men">Idle Men Count:</label>
+            <input type="number" id="idle_men" name="idle_men"><br>
+
+            <label for="no_of_style_change">Number of Style Changes:</label>
+            <input type="number" id="no_of_style_change" name="no_of_style_change"><br>
+
+            <label for="no_of_workers">Number of Workers:</label>
+            <input type="number" id="no_of_workers" name="no_of_workers" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h2 class="result">{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
