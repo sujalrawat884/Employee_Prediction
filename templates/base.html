@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Employee Performance Prediction{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        light: '#f3f4f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-primary shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-white text-xl font-bold">Employee Predict</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="{{ url_for('home') }}" class="{% block nav_home %}text-gray-300 hover:bg-secondary hover:text-white{% endblock %} px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="{{ url_for('about') }}" class="{% block nav_about %}text-gray-300 hover:bg-secondary hover:text-white{% endblock %} px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="{{ url_for('predict') }}" class="{% block nav_predict %}text-gray-300 hover:bg-secondary hover:text-white{% endblock %} px-3 py-2 rounded-md text-sm font-medium">Predict</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                    <a href="{{ url_for('home') }}" class="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="{{ url_for('about') }}" class="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="{{ url_for('predict') }}" class="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium">Predict</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">{% block header %}Employee Performance Prediction{% endblock %}</h1>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 text-sm">
+                &copy; 2025 Employee Performance Prediction System
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
